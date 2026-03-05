@@ -24,15 +24,10 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
       </h3>
       <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
 
-      {/* Mini criteria bar */}
-      <div className="grid grid-cols-5 gap-1 mb-4">
-        {Object.entries(project.criteria).map(([key, val]) => (
-          <div key={key} className="text-center">
-            <div className="h-1 rounded-full bg-secondary overflow-hidden">
-              <div className="h-full bg-primary/60 rounded-full" style={{ width: `${val}%` }} />
-            </div>
-            <span className="text-[8px] text-muted-foreground mt-0.5 block capitalize">{key.slice(0, 3)}</span>
-          </div>
+      {/* Criteria summary */}
+      <div className="flex flex-wrap gap-1 mb-4">
+        {Object.keys(project.criteria).map((key) => (
+          <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
         ))}
       </div>
 

@@ -42,7 +42,7 @@ const ProjectDetail = () => {
         </button>
       </div>
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-8">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-8">
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
@@ -63,29 +63,33 @@ const ProjectDetail = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-8">
-          {/* Left column */}
+          {/* Left column — description + criteria */}
           <div className="col-span-2 space-y-8">
-            {/* Description */}
             <div>
               <h2 className="wireframe-label mb-2">Description</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
             </div>
 
+            {/* R&D Level */}
+            <div className="border border-border rounded-sm p-5 bg-card">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
+                <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
+              </div>
+              <div className="h-3 rounded-full bg-secondary overflow-hidden">
+                <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${project.rdLevel}%` }} />
+              </div>
+            </div>
+
             {/* Criteria */}
             <div>
               <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
-              <div className="grid grid-cols-1 gap-4">
-                {Object.entries(project.criteria).map(([key, val]) => (
-                  <div key={key} className="border border-border rounded-sm p-4 bg-card">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-foreground">{criteriaLabels[key]}</span>
-                      <span className="text-sm font-semibold text-foreground">{val}%</span>
-                    </div>
-                    <div className="h-2.5 rounded-full bg-secondary overflow-hidden mb-2">
-                      <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${val}%` }} />
-                    </div>
-                    <p className="text-xs text-muted-foreground italic">
-                      AI-generated justification for {criteriaLabels[key].toLowerCase()} criterion would appear here with detailed reasoning and evidence from uploaded documents.
+              <div className="space-y-4">
+                {Object.entries(project.criteria).map(([key, justification]) => (
+                  <div key={key} className="border border-border rounded-sm p-5 bg-card">
+                    <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {justification}
                     </p>
                   </div>
                 ))}
