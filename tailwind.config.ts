@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Public Sans', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +49,16 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        pwc: {
+          orange: "hsl(var(--pwc-orange))",
+          "orange-light": "hsl(var(--pwc-orange-light))",
+          black: "hsl(var(--pwc-black))",
+          dark: "hsl(var(--pwc-dark))",
+          grey: "hsl(var(--pwc-grey))",
+          "light-grey": "hsl(var(--pwc-light-grey))",
+          tangerine: "hsl(var(--pwc-tangerine))",
+          rose: "hsl(var(--pwc-rose))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
