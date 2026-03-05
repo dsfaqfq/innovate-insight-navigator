@@ -1,9 +1,10 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { projects, programs } from "@/lib/mockData";
 import type { Project } from "@/lib/mockData";
 import PwcHeader from "@/components/PwcHeader";
 import WireframeControls from "@/components/WireframeControls";
-import type { NavigationMode, DisplayMode } from "@/components/WireframeControls";
+import type { NavigationMode, DisplayMode, DetailMode } from "@/components/WireframeControls";
 import SearchFilter from "@/components/SearchFilter";
 import ProgramCard from "@/components/ProgramCard";
 import ProjectTileCard from "@/components/ProjectTileCard";
