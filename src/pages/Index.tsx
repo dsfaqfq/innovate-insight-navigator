@@ -134,7 +134,7 @@ const Index = () => {
                     key={proj.id}
                     project={proj}
                     showTags={navMode === "tags"}
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
@@ -146,7 +146,7 @@ const Index = () => {
                     key={proj.id}
                     project={proj}
                     showTags={navMode === "tags"}
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
@@ -159,7 +159,7 @@ const Index = () => {
                     project={proj}
                     showTags={navMode === "tags"}
                     compact
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
