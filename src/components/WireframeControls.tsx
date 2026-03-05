@@ -1,7 +1,8 @@
-import { LayoutGrid, List, Rows3, Tags, FolderTree } from "lucide-react";
+import { LayoutGrid, List, Rows3, Tags, FolderTree, PanelRight, Maximize2 } from "lucide-react";
 
 export type NavigationMode = "programs" | "tags";
 export type DisplayMode = "tiles" | "list" | "compact";
+export type DetailMode = "panel" | "page";
 
 interface WireframeControlsProps {
   navigationMode: NavigationMode;
