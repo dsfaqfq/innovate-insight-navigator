@@ -18,7 +18,7 @@ const criteriaLabels: Record<string, string> = {
 
 const ProjectDetailPanel = ({ project, onClose }: ProjectDetailPanelProps) => {
   return (
-    <div className="fixed inset-y-0 right-0 w-[420px] bg-card border-l border-border shadow-xl z-50 flex flex-col animate-in slide-in-from-right">
+    <div className="fixed inset-y-0 right-0 w-[480px] bg-card border-l border-border shadow-xl z-50 flex flex-col animate-in slide-in-from-right">
       <div className="flex items-center justify-between px-6 py-4 border-b border-border">
         <h2 className="text-sm font-semibold text-foreground">{project.name}</h2>
         <button onClick={onClose} className="p-1 hover:bg-muted rounded-sm transition-colors">
@@ -47,18 +47,12 @@ const ProjectDetailPanel = ({ project, onClose }: ProjectDetailPanelProps) => {
         {/* Criteria */}
         <div>
           <span className="wireframe-label">Evaluation Criteria</span>
-          <div className="mt-3 space-y-3">
-            {Object.entries(project.criteria).map(([key, val]) => (
-              <div key={key}>
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-medium text-foreground">{criteriaLabels[key]}</span>
-                  <span className="text-xs text-muted-foreground">{val}%</span>
-                </div>
-                <div className="h-2 rounded-full bg-secondary overflow-hidden">
-                  <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${val}%` }} />
-                </div>
-                <p className="text-[10px] text-muted-foreground mt-1 italic">
-                  AI-generated justification for {criteriaLabels[key].toLowerCase()} criterion would appear here.
+          <div className="mt-3 space-y-4">
+            {Object.entries(project.criteria).map(([key, justification]) => (
+              <div key={key} className="border border-border rounded-sm p-3 bg-muted/30">
+                <span className="text-xs font-semibold text-foreground">{criteriaLabels[key]}</span>
+                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                  {justification}
                 </p>
               </div>
             ))}
