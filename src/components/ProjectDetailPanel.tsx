@@ -29,7 +29,7 @@ const ProjectDetailPanel = ({ project, onClose }: ProjectDetailPanelProps) => {
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
         <div className="flex items-center gap-3">
           <StatusBadge status={project.status} />
-          <RdLevelBadge level={project.rdLevel} size="lg" />
+          {project.rdLevel != null && <RdLevelBadge level={project.rdLevel} size="lg" />}
         </div>
 
         <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
@@ -44,20 +44,33 @@ const ProjectDetailPanel = ({ project, onClose }: ProjectDetailPanelProps) => {
           </div>
         </div>
 
-        {/* Criteria */}
-        <div>
-          <span className="wireframe-label">Evaluation Criteria</span>
-          <div className="mt-3 space-y-4">
-            {Object.entries(project.criteria).map(([key, justification]) => (
-              <div key={key} className="border border-border rounded-sm p-3 bg-muted/30">
-                <span className="text-xs font-semibold text-foreground">{criteriaLabels[key]}</span>
-                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
-                  {justification}
-                </p>
-              </div>
-            ))}
+        {/* Criteria — only for completed */}
+        {project.criteria ? (
+          <div>
+            <span className="wireframe-label">Evaluation Criteria</span>
+            <div className="mt-3 space-y-4">
+              {Object.entries(project.criteria).map(([key, justification]) => (
+                <div key={key} className="border border-border rounded-sm p-3 bg-muted/30">
+                  <span className="text-xs font-semibold text-foreground">{criteriaLabels[key]}</span>
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                    {justification}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="border border-dashed border-border rounded-sm p-6 text-center">
+            <p className="text-sm font-medium text-muted-foreground mb-1">
+              {project.status === "analyzing" ? "Analysis in progress…" : "No analysis yet"}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {project.status === "analyzing"
+                ? "R&D evaluation criteria and score will appear here once analysis is complete."
+                : "Upload documents and run AI analysis to generate R&D evaluation."}
+            </p>
+          </div>
+        )}
 
         {/* Documents */}
         <div>
