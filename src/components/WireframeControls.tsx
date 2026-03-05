@@ -74,7 +74,33 @@ const WireframeControls = ({
                 <Icon size={13} /> {label}
               </button>
             ))}
+        </div>
+
+        <div>
+          <span className="wireframe-label mr-3">Detail View</span>
+          <div className="inline-flex rounded-sm border border-border overflow-hidden">
+            <button
+              onClick={() => onDetailChange("panel")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+                detailMode === "panel"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card text-foreground hover:bg-muted"
+              }`}
+            >
+              <PanelRight size={13} /> Side Panel
+            </button>
+            <button
+              onClick={() => onDetailChange("page")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+                detailMode === "page"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card text-foreground hover:bg-muted"
+              }`}
+            >
+              <Maximize2 size={13} /> Full Page
+            </button>
           </div>
+        </div>
         </div>
       </div>
 
