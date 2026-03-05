@@ -1,9 +1,10 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { projects, programs } from "@/lib/mockData";
 import type { Project } from "@/lib/mockData";
 import PwcHeader from "@/components/PwcHeader";
 import WireframeControls from "@/components/WireframeControls";
-import type { NavigationMode, DisplayMode } from "@/components/WireframeControls";
+import type { NavigationMode, DisplayMode, DetailMode } from "@/components/WireframeControls";
 import SearchFilter from "@/components/SearchFilter";
 import ProgramCard from "@/components/ProgramCard";
 import ProjectTileCard from "@/components/ProjectTileCard";
@@ -14,8 +15,10 @@ import { Plus } from "lucide-react";
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 
 const Index = () => {
+  const navigate = useNavigate();
   const [navMode, setNavMode] = useState<NavigationMode>("programs");
   const [displayMode, setDisplayMode] = useState<DisplayMode>("tiles");
+  const [detailMode, setDetailMode] = useState<DetailMode>("panel");
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [search, setSearch] = useState("");
@@ -60,12 +63,14 @@ const Index = () => {
       <WireframeControls
         navigationMode={navMode}
         displayMode={displayMode}
+        detailMode={detailMode}
         onNavigationChange={(m) => {
           setNavMode(m);
           setSelectedProgram(null);
           setSelectedTags([]);
         }}
         onDisplayChange={setDisplayMode}
+        onDetailChange={setDetailMode}
         selectedProgram={selectedProgram}
         onBackToPrograms={() => setSelectedProgram(null)}
       />
@@ -129,7 +134,7 @@ const Index = () => {
                     key={proj.id}
                     project={proj}
                     showTags={navMode === "tags"}
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
@@ -141,7 +146,7 @@ const Index = () => {
                     key={proj.id}
                     project={proj}
                     showTags={navMode === "tags"}
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
@@ -154,7 +159,7 @@ const Index = () => {
                     project={proj}
                     showTags={navMode === "tags"}
                     compact
-                    onClick={() => setSelectedProject(proj)}
+                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
                   />
                 ))}
               </div>
