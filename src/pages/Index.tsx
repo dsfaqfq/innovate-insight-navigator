@@ -15,8 +15,10 @@ import { Plus } from "lucide-react";
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 
 const Index = () => {
+  const navigate = useNavigate();
   const [navMode, setNavMode] = useState<NavigationMode>("programs");
   const [displayMode, setDisplayMode] = useState<DisplayMode>("tiles");
+  const [detailMode, setDetailMode] = useState<DetailMode>("panel");
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [search, setSearch] = useState("");
