@@ -24,12 +24,16 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
       </h3>
       <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
 
-      {/* Criteria summary */}
-      <div className="flex flex-wrap gap-1 mb-4">
-        {Object.keys(project.criteria).map((key) => (
-          <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
-        ))}
-      </div>
+      {project.criteria && (
+        <div className="flex flex-wrap gap-1 mb-4">
+          {Object.keys(project.criteria).map((key) => (
+            <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
+          ))}
+        </div>
+      )}
+      {!project.criteria && (
+        <p className="text-[11px] text-muted-foreground italic mb-4">Analysis not yet available</p>
+      )}
 
       <div className="flex items-center justify-between text-[11px] text-muted-foreground">
         <span className="flex items-center gap-1"><FileText size={11} /> {project.documentsCount} docs</span>

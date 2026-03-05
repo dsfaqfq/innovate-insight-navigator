@@ -70,31 +70,46 @@ const ProjectDetail = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
             </div>
 
-            {/* R&D Level */}
-            <div className="border border-border rounded-sm p-5 bg-card">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
-                <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
+            {/* R&D Level — only if available */}
+            {project.rdLevel != null && (
+              <div className="border border-border rounded-sm p-5 bg-card">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
+                  <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
+                </div>
+                <div className="h-3 rounded-full bg-secondary overflow-hidden">
+                  <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${project.rdLevel}%` }} />
+                </div>
               </div>
-              <div className="h-3 rounded-full bg-secondary overflow-hidden">
-                <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${project.rdLevel}%` }} />
-              </div>
-            </div>
+            )}
 
-            {/* Criteria */}
-            <div>
-              <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
-              <div className="space-y-4">
-                {Object.entries(project.criteria).map(([key, justification]) => (
-                  <div key={key} className="border border-border rounded-sm p-5 bg-card">
-                    <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {justification}
-                    </p>
-                  </div>
-                ))}
+            {/* Criteria — only if available */}
+            {project.criteria ? (
+              <div>
+                <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
+                <div className="space-y-4">
+                  {Object.entries(project.criteria).map(([key, justification]) => (
+                    <div key={key} className="border border-border rounded-sm p-5 bg-card">
+                      <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {justification}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="border border-dashed border-border rounded-sm p-8 text-center">
+                <p className="text-sm font-medium text-foreground mb-2">
+                  {project.status === "analyzing" ? "Analysis in progress…" : "No analysis yet"}
+                </p>
+                <p className="text-xs text-muted-foreground max-w-md mx-auto">
+                  {project.status === "analyzing"
+                    ? "The AI is currently evaluating this project. R&D score and criteria justifications will appear here once the analysis is complete."
+                    : "Upload technical documents and run an AI analysis to generate the R&D evaluation score and criteria justifications."}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Right sidebar */}
