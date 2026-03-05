@@ -57,15 +57,10 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
         <span className="text-[11px] text-muted-foreground">{project.lastUpdated}</span>
       </div>
 
-      {/* Criteria bars */}
-      <div className="w-32 shrink-0 space-y-1.5 pt-1">
-        {Object.entries(project.criteria).map(([key, val]) => (
-          <div key={key} className="flex items-center gap-2">
-            <span className="text-[9px] text-muted-foreground w-10 capitalize">{key.slice(0, 4)}</span>
-            <div className="flex-1 h-1 rounded-full bg-secondary overflow-hidden">
-              <div className="h-full bg-primary/60 rounded-full" style={{ width: `${val}%` }} />
-            </div>
-          </div>
+      {/* Criteria labels */}
+      <div className="w-32 shrink-0 flex flex-wrap gap-1 pt-1">
+        {Object.keys(project.criteria).map((key) => (
+          <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key.slice(0, 4)}</span>
         ))}
       </div>
     </div>
