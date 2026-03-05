@@ -7,8 +7,10 @@ export type DetailMode = "panel" | "page";
 interface WireframeControlsProps {
   navigationMode: NavigationMode;
   displayMode: DisplayMode;
+  detailMode: DetailMode;
   onNavigationChange: (mode: NavigationMode) => void;
   onDisplayChange: (mode: DisplayMode) => void;
+  onDetailChange: (mode: DetailMode) => void;
   selectedProgram: string | null;
   onBackToPrograms: () => void;
 }
