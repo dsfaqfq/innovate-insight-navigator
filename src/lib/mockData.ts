@@ -4,11 +4,11 @@ export interface Project {
   description: string;
   program: string;
   tags: string[];
-  rdLevel: number;
+  rdLevel?: number;
   status: "draft" | "analyzing" | "completed";
   documentsCount: number;
   lastUpdated: string;
-  criteria: {
+  criteria?: {
     novelty: string;
     uncertainty: string;
     creativity: string;
