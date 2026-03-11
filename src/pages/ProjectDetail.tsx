@@ -1,9 +1,9 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "@/lib/mockData";
 import PwcHeader from "@/components/PwcHeader";
 import RdLevelBadge from "@/components/RdLevelBadge";
 import StatusBadge from "@/components/StatusBadge";
-import { ArrowLeft, FileText, Upload, Eye } from "lucide-react";
+import { ArrowLeft, FileText, Upload } from "lucide-react";
 
 const criteriaLabels: Record<string, string> = {
   novelty: "Novelty",
@@ -33,37 +33,13 @@ const ProjectDetail = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <PwcHeader />
 
-      <div className="border-b border-border bg-card px-6 py-3 flex items-center justify-between">
+      <div className="border-b border-border bg-card px-6 py-3">
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
         >
           <ArrowLeft size={13} /> Back to Projects
         </button>
-
-        {/* Wireframe option selector */}
-        <div className="flex items-center gap-2">
-          <Eye size={13} className="text-muted-foreground" />
-          <span className="text-[10px] uppercase tracking-[0.15em] font-semibold text-muted-foreground mr-1">Reference views:</span>
-          <Link
-            to={`/project/${id}/option1`}
-            className="px-3 py-1.5 text-[11px] font-medium rounded-sm border border-border bg-card hover:bg-muted transition-colors text-foreground"
-          >
-            Inline Refs
-          </Link>
-          <Link
-            to={`/project/${id}/option2`}
-            className="px-3 py-1.5 text-[11px] font-medium rounded-sm border border-border bg-card hover:bg-muted transition-colors text-foreground"
-          >
-            Evidence Panel
-          </Link>
-          <Link
-            to={`/project/${id}/option3`}
-            className="px-3 py-1.5 text-[11px] font-medium rounded-sm border border-border bg-card hover:bg-muted transition-colors text-foreground"
-          >
-            Split View
-          </Link>
-        </div>
       </div>
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-8">
