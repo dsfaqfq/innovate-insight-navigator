@@ -19,8 +19,6 @@ const Index = () => {
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [search, setSearch] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const handleTagToggle = (tag: string) => {
     setSelectedTags((prev) =>
