@@ -170,9 +170,6 @@ const Index = () => {
         )}
       </main>
 
-      {selectedProject && (
-        <ProjectDetailPanel project={selectedProject} onClose={() => setSelectedProject(null)} />
-      )}
     </div>
   );
 };
