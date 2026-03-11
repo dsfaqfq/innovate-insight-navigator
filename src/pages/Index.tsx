@@ -16,9 +16,9 @@ const Index = () => {
   const navigate = useNavigate();
   const [navMode, setNavMode] = useState<NavigationMode>("programs");
   const [displayMode, setDisplayMode] = useState<DisplayMode>("tiles");
-  const [detailMode, setDetailMode] = useState<DetailMode>("panel");
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [search, setSearch] = useState("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
