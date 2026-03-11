@@ -142,7 +142,7 @@ const Index = () => {
                     key={proj.id}
                     project={proj}
                     showTags={navMode === "tags"}
-                    onClick={() => detailMode === "page" ? navigate(`/project/${proj.id}`) : setSelectedProject(proj)}
+                    onClick={() => navigate(`/project/${proj.id}`)}
                   />
                 ))}
               </div>
