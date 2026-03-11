@@ -1,16 +1,13 @@
-import { LayoutGrid, List, Rows3, Tags, FolderTree, PanelRight, Maximize2 } from "lucide-react";
+import { LayoutGrid, List, Rows3, Tags, FolderTree } from "lucide-react";
 
 export type NavigationMode = "programs" | "tags";
 export type DisplayMode = "tiles" | "list" | "compact";
-export type DetailMode = "panel" | "page";
 
 interface WireframeControlsProps {
   navigationMode: NavigationMode;
   displayMode: DisplayMode;
-  detailMode: DetailMode;
   onNavigationChange: (mode: NavigationMode) => void;
   onDisplayChange: (mode: DisplayMode) => void;
-  onDetailChange: (mode: DetailMode) => void;
   selectedProgram: string | null;
   onBackToPrograms: () => void;
 }
@@ -18,10 +15,8 @@ interface WireframeControlsProps {
 const WireframeControls = ({
   navigationMode,
   displayMode,
-  detailMode,
   onNavigationChange,
   onDisplayChange,
-  onDetailChange,
   selectedProgram,
   onBackToPrograms,
 }: WireframeControlsProps) => {
@@ -77,31 +72,6 @@ const WireframeControls = ({
           </div>
         </div>
 
-        <div className="flex items-center">
-          <span className="wireframe-label mr-3">Detail View</span>
-          <div className="inline-flex rounded-sm border border-border overflow-hidden">
-            <button
-              onClick={() => onDetailChange("panel")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
-                detailMode === "panel"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card text-foreground hover:bg-muted"
-              }`}
-            >
-              <PanelRight size={13} /> Side Panel
-            </button>
-            <button
-              onClick={() => onDetailChange("page")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
-                detailMode === "page"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card text-foreground hover:bg-muted"
-              }`}
-            >
-              <Maximize2 size={13} /> Full Page
-            </button>
-          </div>
-        </div>
       </div>
 
       {navigationMode === "programs" && selectedProgram && (
