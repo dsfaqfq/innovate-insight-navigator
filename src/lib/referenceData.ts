@@ -12,7 +12,9 @@ export interface UserDocReference {
   type: "pdf" | "docx" | "xlsx" | "txt";
   excerpt: string;
   page?: string;
+  pageNumber?: number;
   section?: string;
+  filePath?: string;
 }
 
 export interface CriterionReferences {
@@ -45,25 +47,25 @@ const frascatiBase: Record<string, FrascatiReference[]> = {
 
 const userDocsBase: Record<string, UserDocReference[]> = {
   novelty: [
-    { id: "u1", documentName: "technical_spec_v3.pdf", type: "pdf", excerpt: "Our approach departs from standard methods by introducing a hybrid evolutionary-gradient search that dynamically expands the architecture space during optimization.", page: "p.12", section: "§3.1 - Approach" },
-    { id: "u2", documentName: "literature_review.pdf", type: "pdf", excerpt: "Existing NAS frameworks (DARTS, ENAS, ProxylessNAS) all operate within fixed, predefined search spaces. No prior work combines evolutionary expansion with gradient descent.", page: "p.4", section: "§2 - Prior Work" },
+    { id: "u1", documentName: "BIOCONTINUE.pdf", type: "pdf", excerpt: "Our approach departs from standard methods by introducing a hybrid evolutionary-gradient search that dynamically expands the architecture space during optimization.", page: "p.3", pageNumber: 3, section: "§3.1 - Approach", filePath: "/documents/BIOCONTINUE.pdf" },
+    { id: "u2", documentName: "BIOSYNC.pdf", type: "pdf", excerpt: "Existing NAS frameworks (DARTS, ENAS, ProxylessNAS) all operate within fixed, predefined search spaces. No prior work combines evolutionary expansion with gradient descent.", page: "p.2", pageNumber: 2, section: "§2 - Prior Work", filePath: "/documents/BIOSYNC.pdf" },
     { id: "u3", documentName: "patent_landscape.xlsx", type: "xlsx", excerpt: "Patent search across USPTO, EPO, and WIPO databases returned zero results for 'dynamic search space expansion in neural architecture search'.", page: "Sheet 2" },
   ],
   uncertainty: [
-    { id: "u4", documentName: "experiment_logs_q4.pdf", type: "pdf", excerpt: "Experiments 14–23 failed to converge using standard crossover operators. Convergence was only achieved after developing a custom topology-aware crossover (Exp. 24).", page: "p.31", section: "§5.2 - Failed Approaches" },
-    { id: "u5", documentName: "technical_spec_v3.pdf", type: "pdf", excerpt: "The feasibility of achieving sub-100ms inference latency on ARM Cortex-A78 while maintaining >92% accuracy was unknown at project inception.", page: "p.8", section: "§2.4 - Constraints" },
+    { id: "u4", documentName: "BIOWOMEN.pdf", type: "pdf", excerpt: "Experiments 14–23 failed to converge using standard crossover operators. Convergence was only achieved after developing a custom topology-aware crossover (Exp. 24).", page: "p.4", pageNumber: 4, section: "§5.2 - Failed Approaches", filePath: "/documents/BIOWOMEN.pdf" },
+    { id: "u5", documentName: "BIOCONTINUE.pdf", type: "pdf", excerpt: "The feasibility of achieving sub-100ms inference latency on ARM Cortex-A78 while maintaining >92% accuracy was unknown at project inception.", page: "p.2", pageNumber: 2, section: "§2.4 - Constraints", filePath: "/documents/BIOCONTINUE.pdf" },
   ],
   creativity: [
-    { id: "u6", documentName: "design_rationale.docx", type: "docx", excerpt: "The multi-objective encoding scheme was developed internally after standard approaches proved inadequate. It encodes topology, operations, and connectivity in a unified representation.", page: "p.6", section: "§4.1 - Encoding Design" },
+    { id: "u6", documentName: "ELUNA.pdf", type: "pdf", excerpt: "The multi-objective encoding scheme was developed internally after standard approaches proved inadequate. It encodes topology, operations, and connectivity in a unified representation.", page: "p.3", pageNumber: 3, section: "§4.1 - Encoding Design", filePath: "/documents/ELUNA.pdf" },
   ],
   systematic: [
-    { id: "u7", documentName: "methodology_report.pdf", type: "pdf", excerpt: "Each architecture variant was evaluated on ImageNet and CIFAR-100 with 5 seeds per configuration. Statistical significance was established using paired t-tests (p < 0.01).", page: "p.18", section: "§6 - Evaluation Protocol" },
-    { id: "u8", documentName: "experiment_logs_q4.pdf", type: "pdf", excerpt: "Complete experiment log covering 47 runs with hyperparameter settings, hardware configuration, and results including all failed attempts.", page: "p.1-45" },
-    { id: "u9", documentName: "ablation_study.pdf", type: "pdf", excerpt: "Systematic ablation removing each component individually confirms that both the evolutionary expansion and gradient refinement contribute meaningfully to final performance.", page: "p.3", section: "§2 - Ablation Results" },
+    { id: "u7", documentName: "MATRIX.pdf", type: "pdf", excerpt: "Each architecture variant was evaluated on ImageNet and CIFAR-100 with 5 seeds per configuration. Statistical significance was established using paired t-tests (p < 0.01).", page: "p.5", pageNumber: 5, section: "§6 - Evaluation Protocol", filePath: "/documents/MATRIX.pdf" },
+    { id: "u8", documentName: "BIOWOMEN.pdf", type: "pdf", excerpt: "Complete experiment log covering 47 runs with hyperparameter settings, hardware configuration, and results including all failed attempts.", page: "p.1", pageNumber: 1, filePath: "/documents/BIOWOMEN.pdf" },
+    { id: "u9", documentName: "BIOSYNC.pdf", type: "pdf", excerpt: "Systematic ablation removing each component individually confirms that both the evolutionary expansion and gradient refinement contribute meaningfully to final performance.", page: "p.3", pageNumber: 3, section: "§2 - Ablation Results", filePath: "/documents/BIOSYNC.pdf" },
   ],
   transferable: [
-    { id: "u10", documentName: "technical_spec_v3.pdf", type: "pdf", excerpt: "The search framework is parameterized to accept arbitrary hardware constraint profiles, enabling application to FPGA, mobile SoC, or server GPU targets.", page: "p.22", section: "§7 - Generalization" },
-    { id: "u11", documentName: "api_documentation.pdf", type: "pdf", excerpt: "Public API documentation covering all configuration options, input formats, and extension points for custom search space definitions.", page: "p.1-15" },
+    { id: "u10", documentName: "BIOCONTINUE.pdf", type: "pdf", excerpt: "The search framework is parameterized to accept arbitrary hardware constraint profiles, enabling application to FPGA, mobile SoC, or server GPU targets.", page: "p.5", pageNumber: 5, section: "§7 - Generalization", filePath: "/documents/BIOCONTINUE.pdf" },
+    { id: "u11", documentName: "ELUNA.pdf", type: "pdf", excerpt: "Public API documentation covering all configuration options, input formats, and extension points for custom search space definitions.", page: "p.1", pageNumber: 1, filePath: "/documents/ELUNA.pdf" },
   ],
 };
 
