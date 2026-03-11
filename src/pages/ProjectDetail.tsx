@@ -10,7 +10,7 @@ import EvidencePanelView from "@/components/references/EvidencePanelView";
 import SplitClaimEvidenceView from "@/components/references/SplitClaimEvidenceView";
 import { ArrowLeft, FileText, Upload, AlignLeft, PanelRight, Columns2 } from "lucide-react";
 
-export type ReferenceViewMode = "inline" | "panel" | "split";
+export type ReferenceViewMode = "inline" | "panel" | "split" | "docpreview";
 
 const criteriaLabels: Record<string, string> = {
   novelty: "Novelty",
