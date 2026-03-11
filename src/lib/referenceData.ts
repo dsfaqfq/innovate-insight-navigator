@@ -12,7 +12,9 @@ export interface UserDocReference {
   type: "pdf" | "docx" | "xlsx" | "txt";
   excerpt: string;
   page?: string;
+  pageNumber?: number;
   section?: string;
+  filePath?: string;
 }
 
 export interface CriterionReferences {
