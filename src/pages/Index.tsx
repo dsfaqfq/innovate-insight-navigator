@@ -61,14 +61,12 @@ const Index = () => {
       <WireframeControls
         navigationMode={navMode}
         displayMode={displayMode}
-        detailMode={detailMode}
         onNavigationChange={(m) => {
           setNavMode(m);
           setSelectedProgram(null);
           setSelectedTags([]);
         }}
         onDisplayChange={setDisplayMode}
-        onDetailChange={setDetailMode}
         selectedProgram={selectedProgram}
         onBackToPrograms={() => setSelectedProgram(null)}
       />
