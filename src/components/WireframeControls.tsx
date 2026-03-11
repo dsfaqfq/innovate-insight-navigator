@@ -15,10 +15,8 @@ interface WireframeControlsProps {
 const WireframeControls = ({
   navigationMode,
   displayMode,
-  detailMode,
   onNavigationChange,
   onDisplayChange,
-  onDetailChange,
   selectedProgram,
   onBackToPrograms,
 }: WireframeControlsProps) => {
