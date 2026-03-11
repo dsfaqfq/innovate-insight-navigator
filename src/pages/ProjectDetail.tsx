@@ -8,7 +8,8 @@ import StatusBadge from "@/components/StatusBadge";
 import InlineReferencesView from "@/components/references/InlineReferencesView";
 import EvidencePanelView from "@/components/references/EvidencePanelView";
 import SplitClaimEvidenceView from "@/components/references/SplitClaimEvidenceView";
-import { ArrowLeft, FileText, Upload, AlignLeft, PanelRight, Columns2 } from "lucide-react";
+import DocumentPreviewView from "@/components/references/DocumentPreviewView";
+import { ArrowLeft, FileText, Upload, AlignLeft, PanelRight, Columns2, Eye } from "lucide-react";
 
 export type ReferenceViewMode = "inline" | "panel" | "split" | "docpreview";
 
