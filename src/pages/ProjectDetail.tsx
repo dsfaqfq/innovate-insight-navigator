@@ -132,6 +132,9 @@ const ProjectDetail = () => {
             {refView === "split" && (
               <SplitClaimEvidenceView criteria={project.criteria!} references={refs} />
             )}
+            {refView === "docpreview" && (
+              <DocumentPreviewView criteria={project.criteria!} references={refs} />
+            )}
           </>
         ) : hasAnalysis && !refs ? (
           /* Has criteria but no references — show plain criteria */
