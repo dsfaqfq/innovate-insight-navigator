@@ -8,9 +8,10 @@ import StatusBadge from "@/components/StatusBadge";
 import InlineReferencesView from "@/components/references/InlineReferencesView";
 import EvidencePanelView from "@/components/references/EvidencePanelView";
 import SplitClaimEvidenceView from "@/components/references/SplitClaimEvidenceView";
-import { ArrowLeft, FileText, Upload, AlignLeft, PanelRight, Columns2 } from "lucide-react";
+import DocumentPreviewView from "@/components/references/DocumentPreviewView";
+import { ArrowLeft, FileText, Upload, AlignLeft, PanelRight, Columns2, Eye } from "lucide-react";
 
-export type ReferenceViewMode = "inline" | "panel" | "split";
+export type ReferenceViewMode = "inline" | "panel" | "split" | "docpreview";
 
 const criteriaLabels: Record<string, string> = {
   novelty: "Novelty",
@@ -61,6 +62,7 @@ const ProjectDetail = () => {
                 { mode: "inline" as const, icon: AlignLeft, label: "Inline" },
                 { mode: "panel" as const, icon: PanelRight, label: "Side Panel" },
                 { mode: "split" as const, icon: Columns2, label: "Split" },
+                { mode: "docpreview" as const, icon: Eye, label: "Doc Preview" },
               ]).map(({ mode, icon: Icon, label }) => (
                 <button
                   key={mode}
@@ -129,6 +131,9 @@ const ProjectDetail = () => {
             )}
             {refView === "split" && (
               <SplitClaimEvidenceView criteria={project.criteria!} references={refs} />
+            )}
+            {refView === "docpreview" && (
+              <DocumentPreviewView criteria={project.criteria!} references={refs} />
             )}
           </>
         ) : hasAnalysis && !refs ? (
