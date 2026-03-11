@@ -62,6 +62,7 @@ const ProjectDetail = () => {
                 { mode: "inline" as const, icon: AlignLeft, label: "Inline" },
                 { mode: "panel" as const, icon: PanelRight, label: "Side Panel" },
                 { mode: "split" as const, icon: Columns2, label: "Split" },
+                { mode: "docpreview" as const, icon: Eye, label: "Doc Preview" },
               ]).map(({ mode, icon: Icon, label }) => (
                 <button
                   key={mode}
