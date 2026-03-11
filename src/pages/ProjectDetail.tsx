@@ -1,9 +1,9 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { projects } from "@/lib/mockData";
 import PwcHeader from "@/components/PwcHeader";
 import RdLevelBadge from "@/components/RdLevelBadge";
 import StatusBadge from "@/components/StatusBadge";
-import { ArrowLeft, FileText, Upload } from "lucide-react";
+import { ArrowLeft, FileText, Upload, Eye } from "lucide-react";
 
 const criteriaLabels: Record<string, string> = {
   novelty: "Novelty",
