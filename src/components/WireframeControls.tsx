@@ -2,7 +2,7 @@ import { LayoutGrid, List, Rows3, Tags, FolderTree, PanelRight, Maximize2 } from
 
 export type NavigationMode = "programs" | "tags";
 export type DisplayMode = "tiles" | "list" | "compact";
-export type DetailMode = "panel" | "page";
+export type DetailMode = "page";
 
 interface WireframeControlsProps {
   navigationMode: NavigationMode;
