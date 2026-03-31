@@ -164,11 +164,11 @@ const ProjectDetail = () => {
 
         {/* Sidebar info — shown below in all modes for simplicity */}
         <div className="grid grid-cols-3 gap-6 mt-8">
-          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
+          <div className="border border-border rounded-lg p-5 bg-card shadow-card">
             <h3 className="wireframe-label mb-3">Tags</h3>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
-                <span key={tag} className="text-[11px] px-2 py-1 bg-secondary text-secondary-foreground rounded-sm">{tag}</span>
+                <span key={tag} className="text-caption px-2.5 py-1 bg-secondary text-secondary-foreground rounded-sm">{tag}</span>
               ))}
             </div>
           </div>
