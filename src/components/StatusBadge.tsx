@@ -6,11 +6,11 @@ const StatusBadge = ({ status }: StatusBadgeProps) => {
   const styles = {
     draft: "bg-muted text-muted-foreground border border-border",
     analyzing: "bg-primary/8 text-primary border border-primary/20",
-    completed: "bg-green-50 text-green-700 border border-green-200",
+    completed: "bg-success-muted text-success-foreground border border-success/20",
   };
 
   return (
-    <span className={`text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 rounded ${styles[status]}`}>
+    <span className={`text-micro uppercase tracking-wider font-semibold px-2.5 py-1 rounded-sm ${styles[status]}`}>
       {status}
     </span>
   );

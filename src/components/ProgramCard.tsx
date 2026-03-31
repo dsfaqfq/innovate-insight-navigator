@@ -12,12 +12,12 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
     return (
       <div
         onClick={onClick}
-        className="group flex items-center gap-4 px-4 py-2.5 border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
+        className="group flex items-center gap-4 px-5 py-3 border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
       >
         <div className="w-1.5 h-6 rounded-full" style={{ backgroundColor: program.color }} />
-        <span className="text-sm font-medium text-foreground flex-1 group-hover:text-primary transition-colors">{program.name}</span>
-        <span className="text-xs text-muted-foreground">{program.projectCount} projects</span>
-        <span className="text-[11px] px-2 py-0.5 rounded-sm bg-secondary text-secondary-foreground">avg {program.avgRdLevel}% R&D</span>
+        <span className="text-body font-medium text-foreground flex-1 group-hover:text-primary transition-colors">{program.name}</span>
+        <span className="text-caption text-muted-foreground">{program.projectCount} projects</span>
+        <span className="text-micro px-2.5 py-1 rounded-sm bg-secondary text-secondary-foreground uppercase">avg {program.avgRdLevel}% R&D</span>
         <ChevronRight size={14} className="text-muted-foreground" />
       </div>
     );
@@ -27,16 +27,16 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
     return (
       <div
         onClick={onClick}
-        className="group flex items-center gap-5 p-5 border border-border rounded-md bg-card hover:border-primary/30 hover:shadow-lg shadow-sm cursor-pointer transition-all"
+        className="group flex items-center gap-5 p-5 border border-border rounded-lg bg-card shadow-card card-interactive cursor-pointer"
       >
         <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: program.color }} />
         <div className="flex-1">
-          <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{program.name}</h3>
-          <p className="text-xs text-muted-foreground mt-0.5">{program.description}</p>
+          <h3 className="text-body font-semibold text-foreground group-hover:text-primary transition-colors">{program.name}</h3>
+          <p className="text-caption text-muted-foreground mt-0.5">{program.description}</p>
         </div>
         <div className="flex items-center gap-4 shrink-0">
-          <span className="text-xs text-muted-foreground">{program.projectCount} projects</span>
-          <span className="text-xs px-2 py-1 rounded-sm bg-secondary text-secondary-foreground font-medium">avg {program.avgRdLevel}% R&D</span>
+          <span className="text-caption text-muted-foreground">{program.projectCount} projects</span>
+          <span className="text-caption px-2.5 py-1 rounded-sm bg-secondary text-secondary-foreground font-medium">avg {program.avgRdLevel}% R&D</span>
           <ChevronRight size={14} className="text-muted-foreground" />
         </div>
       </div>
@@ -47,19 +47,19 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-md p-5 hover:border-primary/30 hover:shadow-lg shadow-sm transition-all cursor-pointer"
+      className="group bg-card border border-border rounded-lg p-6 shadow-card card-interactive cursor-pointer"
     >
       <div className="flex items-start justify-between mb-4">
-        <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: program.color + "18" }}>
+        <div className="w-10 h-10 rounded-md flex items-center justify-center" style={{ backgroundColor: program.color + "18" }}>
           <FolderOpen size={18} style={{ color: program.color }} />
         </div>
-        <span className="text-xs px-2 py-1 rounded-sm bg-secondary text-secondary-foreground font-medium">
+        <span className="text-caption px-2.5 py-1 rounded-sm bg-secondary text-secondary-foreground font-medium">
           avg {program.avgRdLevel}%
         </span>
       </div>
-      <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{program.name}</h3>
-      <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{program.description}</p>
-      <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-3 border-t border-border">
+      <h3 className="text-body font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{program.name}</h3>
+      <p className="text-caption text-muted-foreground mb-4 leading-relaxed">{program.description}</p>
+      <div className="flex items-center justify-between text-caption text-muted-foreground pt-3 border-t border-border">
         <span>{program.projectCount} projects</span>
         <ChevronRight size={13} />
       </div>
