@@ -1,6 +1,6 @@
 const PwcHeader = () => {
   return (
-    <header className="bg-pwc-black text-primary-foreground" style={{ boxShadow: 'var(--shadow-md)' }}>
+    <header className="bg-sidebar text-primary-foreground" style={{ boxShadow: 'var(--shadow-md)' }}>
       <div className="flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2.5">
