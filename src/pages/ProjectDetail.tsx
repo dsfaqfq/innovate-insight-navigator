@@ -57,7 +57,7 @@ const ProjectDetail = () => {
         {hasAnalysis && refs && (
           <div className="flex items-center">
             <span className="wireframe-label mr-3">Reference View</span>
-            <div className="inline-flex rounded-sm border border-border overflow-hidden">
+            <div className="inline-flex rounded-md border border-border overflow-hidden">
               {([
                 { mode: "inline" as const, icon: AlignLeft, label: "Inline" },
                 { mode: "panel" as const, icon: PanelRight, label: "Side Panel" },
@@ -67,7 +67,7 @@ const ProjectDetail = () => {
                 <button
                   key={mode}
                   onClick={() => setRefView(mode)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-caption font-medium transition-colors ${
                     refView === mode
                       ? "bg-primary text-primary-foreground"
                       : "bg-card text-foreground hover:bg-muted"
@@ -85,17 +85,17 @@ const ProjectDetail = () => {
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h1 className="text-xl font-bold text-foreground mb-2">{project.name}</h1>
+            <h1 className="text-display font-display text-foreground mb-2">{project.name}</h1>
             <div className="flex items-center gap-3">
               <StatusBadge status={project.status} />
               <RdLevelBadge level={project.rdLevel} size="lg" />
             </div>
           </div>
           <div className="flex gap-2">
-            <button className="flex items-center gap-2 px-4 py-2 text-xs font-medium bg-secondary text-secondary-foreground rounded-sm hover:bg-muted transition-colors">
+            <button className="flex items-center gap-2 px-4 py-2.5 text-caption font-medium bg-secondary text-secondary-foreground rounded-md hover:bg-muted transition-colors">
               <Upload size={13} /> Upload Documents
             </button>
-            <button className="px-4 py-2 text-xs font-medium bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity">
+            <button className="px-4 py-2.5 text-caption font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity">
               Run AI Analysis
             </button>
           </div>
@@ -104,15 +104,15 @@ const ProjectDetail = () => {
         {/* Description */}
         <div className="mb-8">
           <h2 className="wireframe-label mb-2">Description</h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+          <p className="text-body text-muted-foreground leading-relaxed">{project.description}</p>
         </div>
 
         {/* R&D Level bar */}
         {project.rdLevel != null && (
-          <div className="border border-border rounded-md p-5 bg-card shadow-sm mb-8">
+          <div className="border border-border rounded-lg p-6 bg-card shadow-card mb-8">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
-              <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
+              <span className="text-body font-medium text-foreground">Overall R&D Level</span>
+              <span className="text-heading font-display text-foreground">{project.rdLevel}%</span>
             </div>
             <div className="h-3 rounded-full bg-secondary overflow-hidden">
               <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${project.rdLevel}%` }} />
@@ -142,9 +142,9 @@ const ProjectDetail = () => {
             <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
             <div className="space-y-4">
               {Object.entries(project.criteria!).map(([key, justification]) => (
-                <div key={key} className="border border-border rounded-md p-5 bg-card shadow-sm">
-                  <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{justification}</p>
+                <div key={key} className="border border-border rounded-lg p-6 bg-card shadow-card">
+                  <h3 className="text-body font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
+                  <p className="text-body text-muted-foreground leading-relaxed">{justification}</p>
                 </div>
               ))}
             </div>
@@ -164,18 +164,18 @@ const ProjectDetail = () => {
 
         {/* Sidebar info — shown below in all modes for simplicity */}
         <div className="grid grid-cols-3 gap-6 mt-8">
-          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
+          <div className="border border-border rounded-lg p-5 bg-card shadow-card">
             <h3 className="wireframe-label mb-3">Tags</h3>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
-                <span key={tag} className="text-[11px] px-2 py-1 bg-secondary text-secondary-foreground rounded-sm">{tag}</span>
+                <span key={tag} className="text-caption px-2.5 py-1 bg-secondary text-secondary-foreground rounded-sm">{tag}</span>
               ))}
             </div>
           </div>
 
-          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
+          <div className="border border-border rounded-lg p-5 bg-card shadow-card">
             <h3 className="wireframe-label mb-3">Project Info</h3>
-            <dl className="space-y-2 text-xs">
+            <dl className="space-y-2.5 text-caption">
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Program</dt>
                 <dd className="font-medium text-foreground">{project.program}</dd>
@@ -195,7 +195,7 @@ const ProjectDetail = () => {
             </dl>
           </div>
 
-          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
+          <div className="border border-border rounded-lg p-5 bg-card shadow-card">
             <h3 className="wireframe-label mb-3">Documents ({project.documentsCount})</h3>
             <div className="space-y-1.5">
               {Array.from({ length: Math.min(project.documentsCount, 5) }).map((_, i) => (

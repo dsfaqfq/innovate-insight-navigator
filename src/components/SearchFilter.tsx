@@ -20,10 +20,10 @@ const SearchFilter = ({ value, onChange, placeholder = "Search projects...", tag
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            className="w-full pl-9 pr-4 py-2 text-sm bg-card border border-border rounded-sm focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-muted-foreground"
+            className="w-full pl-9 pr-4 py-2.5 text-body bg-card border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder:text-muted-foreground transition-all"
           />
         </div>
-        <button className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium border border-border rounded-sm bg-card text-foreground hover:bg-muted transition-colors">
+        <button className="flex items-center gap-1.5 px-4 py-2.5 text-caption font-medium border border-border rounded-md bg-card text-foreground hover:bg-muted transition-colors">
           <SlidersHorizontal size={13} /> Filters
         </button>
       </div>
@@ -33,7 +33,7 @@ const SearchFilter = ({ value, onChange, placeholder = "Search projects...", tag
             <button
               key={tag}
               onClick={() => onTagToggle?.(tag)}
-              className={`text-[11px] px-2.5 py-1 rounded-sm font-medium transition-colors ${
+              className={`text-caption px-2.5 py-1 rounded-md font-medium transition-colors ${
                 selectedTags.includes(tag)
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-secondary-foreground hover:bg-muted"

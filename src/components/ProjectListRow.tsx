@@ -15,12 +15,12 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
     return (
       <div
         onClick={onClick}
-        className="group flex items-center gap-4 px-4 py-2.5 border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
+        className="group flex items-center gap-4 px-5 py-3 border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
       >
-        <span className="text-sm font-medium text-foreground flex-1 group-hover:text-primary transition-colors">{project.name}</span>
+        <span className="text-body font-medium text-foreground flex-1 group-hover:text-primary transition-colors">{project.name}</span>
         <RdLevelBadge level={project.rdLevel} size="sm" />
         <StatusBadge status={project.status} />
-        <span className="text-[11px] text-muted-foreground w-20">{project.lastUpdated}</span>
+        <span className="text-caption text-muted-foreground w-20">{project.lastUpdated}</span>
         <ChevronRight size={14} className="text-muted-foreground" />
       </div>
     );
@@ -29,19 +29,19 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
   return (
     <div
       onClick={onClick}
-      className="group flex items-start gap-5 p-5 border border-border rounded-sm bg-card hover:border-primary/40 hover:shadow-sm cursor-pointer transition-all"
+      className="group flex items-start gap-5 p-5 border border-border rounded-lg bg-card shadow-card card-interactive cursor-pointer"
     >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1.5">
-          <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{project.name}</h3>
+          <h3 className="text-body font-semibold text-foreground group-hover:text-primary transition-colors">{project.name}</h3>
           <StatusBadge status={project.status} />
         </div>
-        <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{project.description}</p>
+        <p className="text-caption text-muted-foreground mb-3 leading-relaxed">{project.description}</p>
 
         {showTags && (
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-[10px] px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
+              <span key={tag} className="text-micro px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
                 {tag}
               </span>
             ))}
@@ -51,16 +51,16 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
 
       <div className="flex flex-col items-end gap-2 shrink-0">
         <RdLevelBadge level={project.rdLevel} />
-        <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+        <span className="flex items-center gap-1 text-caption text-muted-foreground">
           <FileText size={11} /> {project.documentsCount} docs
         </span>
-        <span className="text-[11px] text-muted-foreground">{project.lastUpdated}</span>
+        <span className="text-caption text-muted-foreground">{project.lastUpdated}</span>
       </div>
 
       {project.criteria && (
         <div className="w-32 shrink-0 flex flex-wrap gap-1 pt-1">
           {Object.keys(project.criteria).map((key) => (
-            <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key.slice(0, 4)}</span>
+            <span key={key} className="text-micro px-2 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key.slice(0, 4)}</span>
           ))}
         </div>
       )}

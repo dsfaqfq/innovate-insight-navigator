@@ -13,37 +13,37 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-md p-5 hover:border-primary/30 hover:shadow-lg shadow-sm transition-all cursor-pointer"
+      className="group bg-card border border-border rounded-lg p-6 shadow-card card-interactive cursor-pointer"
     >
       <div className="flex items-start justify-between mb-3">
         <StatusBadge status={project.status} />
         <RdLevelBadge level={project.rdLevel} />
       </div>
-      <h3 className="text-sm font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+      <h3 className="text-body font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
         {project.name}
       </h3>
-      <p className="text-xs text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
+      <p className="text-caption text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
 
       {project.criteria && (
-        <div className="flex flex-wrap gap-1 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {Object.keys(project.criteria).map((key) => (
-            <span key={key} className="text-[9px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
+            <span key={key} className="text-micro px-2 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
           ))}
         </div>
       )}
       {!project.criteria && (
-        <p className="text-[11px] text-muted-foreground italic mb-4">Analysis not yet available</p>
+        <p className="text-caption text-muted-foreground italic mb-4">Analysis not yet available</p>
       )}
 
-      <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+      <div className="flex items-center justify-between text-caption text-muted-foreground">
         <span className="flex items-center gap-1"><FileText size={11} /> {project.documentsCount} docs</span>
         <span>{project.lastUpdated}</span>
       </div>
 
       {showTags && (
-        <div className="flex flex-wrap gap-1 mt-3 pt-3 border-t border-border">
+        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-[9px] px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
+            <span key={tag} className="text-micro px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
               {tag}
             </span>
           ))}
