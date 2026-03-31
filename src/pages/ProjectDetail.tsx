@@ -109,10 +109,10 @@ const ProjectDetail = () => {
 
         {/* R&D Level bar */}
         {project.rdLevel != null && (
-          <div className="border border-border rounded-md p-5 bg-card shadow-sm mb-8">
+          <div className="border border-border rounded-lg p-6 bg-card shadow-card mb-8">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
-              <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
+              <span className="text-body font-medium text-foreground">Overall R&D Level</span>
+              <span className="text-heading font-display text-foreground">{project.rdLevel}%</span>
             </div>
             <div className="h-3 rounded-full bg-secondary overflow-hidden">
               <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${project.rdLevel}%` }} />
