@@ -4,8 +4,8 @@ interface StatusBadgeProps {
 
 const StatusBadge = ({ status }: StatusBadgeProps) => {
   const styles = {
-    draft: "bg-secondary text-secondary-foreground",
-    analyzing: "bg-primary/10 text-primary border border-primary/20",
+    draft: "bg-muted text-muted-foreground border border-border",
+    analyzing: "bg-primary/8 text-primary border border-primary/20",
     completed: "bg-green-50 text-green-700 border border-green-200",
   };
 
