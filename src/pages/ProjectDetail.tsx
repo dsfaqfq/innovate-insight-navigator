@@ -57,7 +57,7 @@ const ProjectDetail = () => {
         {hasAnalysis && refs && (
           <div className="flex items-center">
             <span className="wireframe-label mr-3">Reference View</span>
-            <div className="inline-flex rounded-sm border border-border overflow-hidden">
+            <div className="inline-flex rounded-md border border-border overflow-hidden">
               {([
                 { mode: "inline" as const, icon: AlignLeft, label: "Inline" },
                 { mode: "panel" as const, icon: PanelRight, label: "Side Panel" },
