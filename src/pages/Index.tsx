@@ -72,8 +72,8 @@ const Index = () => {
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-6">
         <div className="flex items-end justify-between mb-5">
           <div>
-            <h1 className="text-lg font-bold text-foreground">{heading}</h1>
-            <p className="text-xs text-muted-foreground mt-0.5">{count} {showingPrograms ? "programs" : "projects"}</p>
+            <h1 className="text-heading font-display text-foreground">{heading}</h1>
+            <p className="text-caption text-muted-foreground mt-1">{count} {showingPrograms ? "programs" : "projects"}</p>
           </div>
           <button className="flex items-center gap-1.5 px-4 py-2.5 text-caption font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity">
             <Plus size={13} /> New {showingPrograms ? "Program" : "Project"}
