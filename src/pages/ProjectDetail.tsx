@@ -173,9 +173,9 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
+          <div className="border border-border rounded-lg p-5 bg-card shadow-card">
             <h3 className="wireframe-label mb-3">Project Info</h3>
-            <dl className="space-y-2 text-xs">
+            <dl className="space-y-2.5 text-caption">
               <div className="flex justify-between">
                 <dt className="text-muted-foreground">Program</dt>
                 <dd className="font-medium text-foreground">{project.program}</dd>
