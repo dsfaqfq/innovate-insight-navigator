@@ -195,7 +195,7 @@ const ProjectDetail = () => {
             </dl>
           </div>
 
-          <div className="border border-border rounded-sm p-4 bg-card">
+          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
             <h3 className="wireframe-label mb-3">Documents ({project.documentsCount})</h3>
             <div className="space-y-1.5">
               {Array.from({ length: Math.min(project.documentsCount, 5) }).map((_, i) => (
