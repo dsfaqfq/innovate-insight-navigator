@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { BookOpen, FileText, ChevronRight } from "lucide-react";
+import { BookOpen, FileText, ChevronRight, Sparkles, Shield } from "lucide-react";
 import type { ProjectReferences } from "@/lib/referenceData";
+import DecisionStateBadge from "@/components/DecisionStateBadge";
 
 const criteriaLabels: Record<string, string> = {
   novelty: "Novelty",
@@ -21,16 +22,16 @@ const EvidencePanelView = ({ criteria, references }: Props) => {
   const refs = references[selectedCriterion];
 
   return (
-    <div className="grid grid-cols-5 gap-0 border border-border rounded-sm bg-card overflow-hidden min-h-[500px]">
+    <div className="grid grid-cols-5 gap-0 border border-border rounded-lg bg-card overflow-hidden min-h-[500px] shadow-card">
       {/* Left: main content — 3 cols */}
       <div className="col-span-3 border-r border-border overflow-y-auto">
-        <div className="px-5 pt-5 pb-3">
-          <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
+        <div className="px-5 pt-5 pb-3 flex items-center justify-between">
+          <h2 className="wireframe-label">Evaluation Criteria</h2>
+          <DecisionStateBadge state="ai-generated" />
         </div>
         <div className="space-y-0">
           {Object.entries(criteria).map(([key, justification]) => {
             const isSelected = selectedCriterion === key;
-            const refCount = refs ? refs.frascati.length + refs.userDocs.length : 0;
             const thisRefs = references[key];
             const thisCount = thisRefs ? thisRefs.frascati.length + thisRefs.userDocs.length : 0;
 
@@ -39,17 +40,21 @@ const EvidencePanelView = ({ criteria, references }: Props) => {
                 key={key}
                 onClick={() => setSelectedCriterion(key)}
                 className={`w-full text-left px-5 py-4 border-b border-border transition-colors ${
-                  isSelected ? "bg-muted" : "hover:bg-muted/50"
+                  isSelected ? "bg-neutral-100" : "hover:bg-neutral-50"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-sm font-semibold text-foreground">{criteriaLabels[key]}</h3>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] text-muted-foreground">{thisCount} refs</span>
-                    <ChevronRight size={13} className={`text-muted-foreground transition-transform ${isSelected ? "text-primary rotate-0" : ""}`} />
+                  <h3 className="text-body font-semibold text-foreground">{criteriaLabels[key]}</h3>
+                  <div className="flex items-center gap-2">
+                    {/* Confidence indicator */}
+                    <span className="inline-flex items-center gap-1 text-micro px-2 py-0.5 rounded-sm bg-secondary-muted text-secondary">
+                      <Sparkles size={10} />
+                      {thisCount} refs
+                    </span>
+                    <ChevronRight size={13} className={`text-muted-foreground transition-transform ${isSelected ? "text-secondary rotate-90" : ""}`} />
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">{justification}</p>
+                <p className="text-caption text-muted-foreground leading-relaxed line-clamp-3">{justification}</p>
               </button>
             );
           })}
@@ -57,7 +62,7 @@ const EvidencePanelView = ({ criteria, references }: Props) => {
       </div>
 
       {/* Right: evidence panel — 2 cols */}
-      <div className="col-span-2 overflow-y-auto bg-background">
+      <div className="col-span-2 overflow-y-auto bg-panel">
         <div className="px-4 pt-5 pb-3 border-b border-border">
           <h2 className="wireframe-label">
             Evidence — {criteriaLabels[selectedCriterion]}
@@ -69,20 +74,25 @@ const EvidencePanelView = ({ criteria, references }: Props) => {
             {/* Frascati section */}
             <div className="px-4 py-4">
               <div className="flex items-center gap-1.5 mb-3">
-                <BookOpen size={13} className="text-primary" />
-                <span className="text-[10px] uppercase tracking-widest font-semibold text-primary">
+                <BookOpen size={13} className="text-secondary" />
+                <span className="text-micro uppercase tracking-widest font-semibold text-secondary">
                   Frascati Basis
                 </span>
-                <span className="ml-auto text-[10px] text-muted-foreground">{refs.frascati.length}</span>
+                <span className="ml-auto text-micro text-muted-foreground">{refs.frascati.length}</span>
               </div>
               <div className="space-y-3">
                 {refs.frascati.map((ref) => (
-                  <div key={ref.id} className="border border-border rounded-sm p-3 bg-card">
+                  <div key={ref.id} className="border border-border rounded-lg p-3 bg-card shadow-card">
                     <div className="flex items-baseline justify-between mb-1.5">
-                      <span className="text-xs font-semibold text-foreground">{ref.section}: {ref.title}</span>
-                      {ref.page && <span className="text-[10px] text-muted-foreground">{ref.page}</span>}
+                      <span className="text-caption font-semibold text-foreground">{ref.section}: {ref.title}</span>
+                      {ref.page && <span className="text-micro text-muted-foreground">{ref.page}</span>}
                     </div>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed italic">"{ref.excerpt}"</p>
+                    <p className="text-caption text-muted-foreground leading-relaxed italic">"{ref.excerpt}"</p>
+                    {/* Relevance indicator */}
+                    <div className="flex items-center gap-1.5 mt-2">
+                      <Shield size={10} className="text-success" />
+                      <span className="text-micro text-success-foreground">High relevance</span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -91,21 +101,30 @@ const EvidencePanelView = ({ criteria, references }: Props) => {
             {/* User docs section */}
             <div className="px-4 py-4">
               <div className="flex items-center gap-1.5 mb-3">
-                <FileText size={13} style={{ color: "hsl(var(--pwc-tangerine))" }} />
-                <span className="text-[10px] uppercase tracking-widest font-semibold" style={{ color: "hsl(var(--pwc-tangerine))" }}>
+                <FileText size={13} className="text-secondary" />
+                <span className="text-micro uppercase tracking-widest font-semibold text-secondary">
                   Project Documents
                 </span>
-                <span className="ml-auto text-[10px] text-muted-foreground">{refs.userDocs.length}</span>
+                <span className="ml-auto text-micro text-muted-foreground">{refs.userDocs.length}</span>
               </div>
               <div className="space-y-3">
                 {refs.userDocs.map((ref) => (
-                  <div key={ref.id} className="border rounded-sm p-3 bg-card" style={{ borderColor: "hsl(var(--pwc-tangerine) / 0.25)" }}>
+                  <div key={ref.id} className="border border-border rounded-lg p-3 bg-card shadow-card">
                     <div className="flex items-baseline justify-between mb-1">
-                      <span className="text-xs font-semibold text-foreground">{ref.documentName}</span>
-                      <span className="text-[10px] text-muted-foreground uppercase">{ref.type}</span>
+                      <span className="text-caption font-semibold text-foreground">{ref.documentName}</span>
+                      <span className="text-micro text-muted-foreground uppercase">{ref.type}</span>
                     </div>
-                    {ref.section && <span className="text-[10px] text-muted-foreground block mb-1">{ref.section} {ref.page && `· ${ref.page}`}</span>}
-                    <p className="text-[11px] text-muted-foreground leading-relaxed italic">"{ref.excerpt}"</p>
+                    {ref.section && (
+                      <span className="text-micro text-muted-foreground block mb-1">
+                        {ref.section} {ref.page && `· ${ref.page}`}
+                      </span>
+                    )}
+                    <p className="text-caption text-muted-foreground leading-relaxed italic">"{ref.excerpt}"</p>
+                    {/* Relevance indicator */}
+                    <div className="flex items-center gap-1.5 mt-2">
+                      <Shield size={10} className="text-info" />
+                      <span className="text-micro text-info-foreground">Medium relevance</span>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -13,13 +13,13 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-lg p-6 shadow-card card-interactive cursor-pointer"
+      className="group bg-card border border-border rounded-lg p-4 shadow-card card-interactive cursor-pointer"
     >
       <div className="flex items-start justify-between mb-3">
         <StatusBadge status={project.status} />
         <RdLevelBadge level={project.rdLevel} />
       </div>
-      <h3 className="text-body font-semibold text-foreground mb-1.5 group-hover:text-primary transition-colors">
+      <h3 className="text-body font-semibold text-foreground mb-1.5 group-hover:text-secondary transition-colors">
         {project.name}
       </h3>
       <p className="text-caption text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{project.description}</p>
@@ -27,7 +27,7 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
       {project.criteria && (
         <div className="flex flex-wrap gap-1.5 mb-4">
           {Object.keys(project.criteria).map((key) => (
-            <span key={key} className="text-micro px-2 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key}</span>
+            <span key={key} className="text-micro px-2 py-0.5 bg-neutral-100 text-neutral-500 rounded-sm capitalize">{key}</span>
           ))}
         </div>
       )}
@@ -35,7 +35,7 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
         <p className="text-caption text-muted-foreground italic mb-4">Analysis not yet available</p>
       )}
 
-      <div className="flex items-center justify-between text-caption text-muted-foreground">
+      <div className="flex items-center justify-between text-caption text-muted-foreground pt-3 border-t border-border">
         <span className="flex items-center gap-1"><FileText size={11} /> {project.documentsCount} docs</span>
         <span>{project.lastUpdated}</span>
       </div>
@@ -43,7 +43,7 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
       {showTags && (
         <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-border">
           {project.tags.map((tag) => (
-            <span key={tag} className="text-micro px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
+            <span key={tag} className="text-micro px-2 py-0.5 bg-neutral-100 text-neutral-600 rounded-sm">
               {tag}
             </span>
           ))}

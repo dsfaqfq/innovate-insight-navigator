@@ -15,9 +15,9 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
     return (
       <div
         onClick={onClick}
-        className="group flex items-center gap-4 px-5 py-3 border-b border-border hover:bg-muted/50 cursor-pointer transition-colors"
+        className="group flex items-center gap-4 px-5 py-3 border-b border-border hover:bg-neutral-50 cursor-pointer transition-colors"
       >
-        <span className="text-body font-medium text-foreground flex-1 group-hover:text-primary transition-colors">{project.name}</span>
+        <span className="text-body font-medium text-foreground flex-1 group-hover:text-secondary transition-colors">{project.name}</span>
         <RdLevelBadge level={project.rdLevel} size="sm" />
         <StatusBadge status={project.status} />
         <span className="text-caption text-muted-foreground w-20">{project.lastUpdated}</span>
@@ -29,11 +29,11 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
   return (
     <div
       onClick={onClick}
-      className="group flex items-start gap-5 p-5 border border-border rounded-lg bg-card shadow-card card-interactive cursor-pointer"
+      className="group flex items-start gap-5 p-4 border border-border rounded-lg bg-card shadow-card card-interactive cursor-pointer"
     >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1.5">
-          <h3 className="text-body font-semibold text-foreground group-hover:text-primary transition-colors">{project.name}</h3>
+          <h3 className="text-body font-semibold text-foreground group-hover:text-secondary transition-colors">{project.name}</h3>
           <StatusBadge status={project.status} />
         </div>
         <p className="text-caption text-muted-foreground mb-3 leading-relaxed">{project.description}</p>
@@ -41,7 +41,7 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
         {showTags && (
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
-              <span key={tag} className="text-micro px-2 py-0.5 bg-secondary text-secondary-foreground rounded-sm">
+              <span key={tag} className="text-micro px-2 py-0.5 bg-neutral-100 text-neutral-600 rounded-sm">
                 {tag}
               </span>
             ))}
@@ -60,7 +60,7 @@ const ProjectListRow = ({ project, showTags, compact, onClick }: ProjectListRowP
       {project.criteria && (
         <div className="w-32 shrink-0 flex flex-wrap gap-1 pt-1">
           {Object.keys(project.criteria).map((key) => (
-            <span key={key} className="text-micro px-2 py-0.5 bg-muted text-muted-foreground rounded-sm capitalize">{key.slice(0, 4)}</span>
+            <span key={key} className="text-micro px-2 py-0.5 bg-neutral-100 text-neutral-500 rounded-sm capitalize">{key.slice(0, 4)}</span>
           ))}
         </div>
       )}
