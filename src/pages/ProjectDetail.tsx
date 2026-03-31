@@ -142,9 +142,9 @@ const ProjectDetail = () => {
             <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
             <div className="space-y-4">
               {Object.entries(project.criteria!).map(([key, justification]) => (
-                <div key={key} className="border border-border rounded-md p-5 bg-card shadow-sm">
-                  <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{justification}</p>
+                <div key={key} className="border border-border rounded-lg p-6 bg-card shadow-card">
+                  <h3 className="text-body font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
+                  <p className="text-body text-muted-foreground leading-relaxed">{justification}</p>
                 </div>
               ))}
             </div>
