@@ -109,7 +109,7 @@ const ProjectDetail = () => {
 
         {/* R&D Level bar */}
         {project.rdLevel != null && (
-          <div className="border border-border rounded-sm p-5 bg-card mb-8">
+          <div className="border border-border rounded-md p-5 bg-card shadow-sm mb-8">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
               <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
