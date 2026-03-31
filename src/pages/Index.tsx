@@ -75,7 +75,7 @@ const Index = () => {
             <h1 className="text-lg font-bold text-foreground">{heading}</h1>
             <p className="text-xs text-muted-foreground mt-0.5">{count} {showingPrograms ? "programs" : "projects"}</p>
           </div>
-          <button className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity">
+          <button className="flex items-center gap-1.5 px-4 py-2.5 text-caption font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity">
             <Plus size={13} /> New {showingPrograms ? "Program" : "Project"}
           </button>
         </div>
