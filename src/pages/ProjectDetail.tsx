@@ -104,7 +104,7 @@ const ProjectDetail = () => {
         {/* Description */}
         <div className="mb-8">
           <h2 className="wireframe-label mb-2">Description</h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+          <p className="text-body text-muted-foreground leading-relaxed">{project.description}</p>
         </div>
 
         {/* R&D Level bar */}
