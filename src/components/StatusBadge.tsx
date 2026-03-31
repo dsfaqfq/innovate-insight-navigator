@@ -10,7 +10,7 @@ const StatusBadge = ({ status }: StatusBadgeProps) => {
   };
 
   return (
-    <span className={`text-[10px] uppercase tracking-wider font-medium px-2 py-0.5 rounded-sm ${styles[status]}`}>
+    <span className={`text-[10px] uppercase tracking-wider font-medium px-2.5 py-1 rounded ${styles[status]}`}>
       {status}
     </span>
   );
