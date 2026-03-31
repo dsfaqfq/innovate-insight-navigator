@@ -47,7 +47,7 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-sm p-5 hover:border-primary/40 hover:shadow-md transition-all cursor-pointer"
+      className="group bg-card border border-border rounded-md p-5 hover:border-primary/30 hover:shadow-lg shadow-sm transition-all cursor-pointer"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: program.color + "18" }}>
