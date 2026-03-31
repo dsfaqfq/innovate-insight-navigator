@@ -67,7 +67,7 @@ const ProjectDetail = () => {
                 <button
                   key={mode}
                   onClick={() => setRefView(mode)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-caption font-medium transition-colors ${
                     refView === mode
                       ? "bg-primary text-primary-foreground"
                       : "bg-card text-foreground hover:bg-muted"
