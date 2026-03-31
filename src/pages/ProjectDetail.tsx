@@ -85,7 +85,7 @@ const ProjectDetail = () => {
         {/* Header */}
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h1 className="text-xl font-bold text-foreground mb-2">{project.name}</h1>
+            <h1 className="text-display font-display text-foreground mb-2">{project.name}</h1>
             <div className="flex items-center gap-3">
               <StatusBadge status={project.status} />
               <RdLevelBadge level={project.rdLevel} size="lg" />
