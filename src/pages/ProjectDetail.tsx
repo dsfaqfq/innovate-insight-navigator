@@ -109,7 +109,7 @@ const ProjectDetail = () => {
 
         {/* R&D Level bar */}
         {project.rdLevel != null && (
-          <div className="border border-border rounded-sm p-5 bg-card mb-8">
+          <div className="border border-border rounded-md p-5 bg-card shadow-sm mb-8">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-foreground">Overall R&D Level</span>
               <span className="text-lg font-bold text-foreground">{project.rdLevel}%</span>
@@ -142,7 +142,7 @@ const ProjectDetail = () => {
             <h2 className="wireframe-label mb-4">Evaluation Criteria</h2>
             <div className="space-y-4">
               {Object.entries(project.criteria!).map(([key, justification]) => (
-                <div key={key} className="border border-border rounded-sm p-5 bg-card">
+                <div key={key} className="border border-border rounded-md p-5 bg-card shadow-sm">
                   <h3 className="text-sm font-semibold text-foreground mb-2">{criteriaLabels[key]}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{justification}</p>
                 </div>
@@ -150,7 +150,7 @@ const ProjectDetail = () => {
             </div>
           </div>
         ) : (
-          <div className="border border-dashed border-border rounded-sm p-8 text-center">
+          <div className="border border-dashed border-border rounded-md p-8 text-center">
             <p className="text-sm font-medium text-foreground mb-2">
               {project.status === "analyzing" ? "Analysis in progress…" : "No analysis yet"}
             </p>
@@ -164,7 +164,7 @@ const ProjectDetail = () => {
 
         {/* Sidebar info — shown below in all modes for simplicity */}
         <div className="grid grid-cols-3 gap-6 mt-8">
-          <div className="border border-border rounded-sm p-4 bg-card">
+          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
             <h3 className="wireframe-label mb-3">Tags</h3>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
@@ -173,7 +173,7 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          <div className="border border-border rounded-sm p-4 bg-card">
+          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
             <h3 className="wireframe-label mb-3">Project Info</h3>
             <dl className="space-y-2 text-xs">
               <div className="flex justify-between">
@@ -195,7 +195,7 @@ const ProjectDetail = () => {
             </dl>
           </div>
 
-          <div className="border border-border rounded-sm p-4 bg-card">
+          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
             <h3 className="wireframe-label mb-3">Documents ({project.documentsCount})</h3>
             <div className="space-y-1.5">
               {Array.from({ length: Math.min(project.documentsCount, 5) }).map((_, i) => (

@@ -13,7 +13,7 @@ const ProjectTileCard = ({ project, showTags, onClick }: ProjectTileCardProps) =
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-sm p-5 hover:border-primary/40 hover:shadow-md transition-all cursor-pointer"
+      className="group bg-card border border-border rounded-md p-5 hover:border-primary/30 hover:shadow-lg shadow-sm transition-all cursor-pointer"
     >
       <div className="flex items-start justify-between mb-3">
         <StatusBadge status={project.status} />

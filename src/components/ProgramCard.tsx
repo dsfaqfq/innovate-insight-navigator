@@ -27,7 +27,7 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
     return (
       <div
         onClick={onClick}
-        className="group flex items-center gap-5 p-5 border border-border rounded-sm bg-card hover:border-primary/40 hover:shadow-sm cursor-pointer transition-all"
+        className="group flex items-center gap-5 p-5 border border-border rounded-md bg-card hover:border-primary/30 hover:shadow-lg shadow-sm cursor-pointer transition-all"
       >
         <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: program.color }} />
         <div className="flex-1">
@@ -47,7 +47,7 @@ const ProgramCard = ({ program, displayMode, onClick }: ProgramCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="group bg-card border border-border rounded-sm p-5 hover:border-primary/40 hover:shadow-md transition-all cursor-pointer"
+      className="group bg-card border border-border rounded-md p-5 hover:border-primary/30 hover:shadow-lg shadow-sm transition-all cursor-pointer"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: program.color + "18" }}>
