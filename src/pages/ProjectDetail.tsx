@@ -92,10 +92,10 @@ const ProjectDetail = () => {
             </div>
           </div>
           <div className="flex gap-2">
-            <button className="flex items-center gap-2 px-4 py-2 text-xs font-medium bg-secondary text-secondary-foreground rounded-sm hover:bg-muted transition-colors">
+            <button className="flex items-center gap-2 px-4 py-2.5 text-caption font-medium bg-secondary text-secondary-foreground rounded-md hover:bg-muted transition-colors">
               <Upload size={13} /> Upload Documents
             </button>
-            <button className="px-4 py-2 text-xs font-medium bg-primary text-primary-foreground rounded-sm hover:opacity-90 transition-opacity">
+            <button className="px-4 py-2.5 text-caption font-medium bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity">
               Run AI Analysis
             </button>
           </div>
