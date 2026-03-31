@@ -25,10 +25,10 @@ const WireframeControls = ({
       <div className="flex items-center gap-6">
         <div className="flex items-center">
           <span className="wireframe-label mr-3">Navigation</span>
-          <div className="inline-flex rounded-sm border border-border overflow-hidden">
+          <div className="inline-flex rounded-md border border-border overflow-hidden">
             <button
               onClick={() => onNavigationChange("programs")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-caption font-medium transition-colors ${
                 navigationMode === "programs"
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-foreground hover:bg-muted"
@@ -38,7 +38,7 @@ const WireframeControls = ({
             </button>
             <button
               onClick={() => onNavigationChange("tags")}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-caption font-medium transition-colors ${
                 navigationMode === "tags"
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-foreground hover:bg-muted"
@@ -51,7 +51,7 @@ const WireframeControls = ({
 
         <div className="flex items-center">
           <span className="wireframe-label mr-3">Display</span>
-          <div className="inline-flex rounded-sm border border-border overflow-hidden">
+          <div className="inline-flex rounded-md border border-border overflow-hidden">
             {([
               { mode: "tiles" as const, icon: LayoutGrid, label: "Tiles" },
               { mode: "list" as const, icon: Rows3, label: "List" },
@@ -60,7 +60,7 @@ const WireframeControls = ({
               <button
                 key={mode}
                 onClick={() => onDisplayChange(mode)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-caption font-medium transition-colors ${
                   displayMode === mode
                     ? "bg-primary text-primary-foreground"
                     : "bg-card text-foreground hover:bg-muted"
@@ -77,7 +77,7 @@ const WireframeControls = ({
       {navigationMode === "programs" && selectedProgram && (
         <button
           onClick={onBackToPrograms}
-          className="text-xs font-medium text-primary hover:underline"
+          className="text-caption font-medium text-primary hover:underline"
         >
           ← Back to Programs
         </button>
