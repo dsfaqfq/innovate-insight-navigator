@@ -173,7 +173,7 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          <div className="border border-border rounded-sm p-4 bg-card">
+          <div className="border border-border rounded-md p-4 bg-card shadow-sm">
             <h3 className="wireframe-label mb-3">Project Info</h3>
             <dl className="space-y-2 text-xs">
               <div className="flex justify-between">
