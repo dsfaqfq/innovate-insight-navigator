@@ -150,7 +150,7 @@ const ProjectDetail = () => {
             </div>
           </div>
         ) : (
-          <div className="border border-dashed border-border rounded-sm p-8 text-center">
+          <div className="border border-dashed border-border rounded-md p-8 text-center">
             <p className="text-sm font-medium text-foreground mb-2">
               {project.status === "analyzing" ? "Analysis in progress…" : "No analysis yet"}
             </p>
